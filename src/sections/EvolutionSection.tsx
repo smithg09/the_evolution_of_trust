@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import Section from '../components/Section';
 import { ALL_STRATEGIES, evolvePopulation } from '../engine';
-import { DoodleSquiggles } from '../components/SketchElements';
 import { getStrategyIcon } from '../components/strategyIcons';
 import './EvolutionSection.css';
 

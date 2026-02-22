@@ -1,5 +1,4 @@
 
-import type { CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 import './PayoffMatrix.css';
 

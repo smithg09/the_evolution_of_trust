@@ -23,7 +23,6 @@ interface TournamentResult {
 export default function TournamentSection({ onComplete }: TournamentSectionProps) {
   const [phase, setPhase] = useState<'intro' | 'running' | 'results' | 'analysis'>('intro');
   const [results, setResults] = useState<TournamentResult[]>([]);
-  const [animatedBars, setAnimatedBars] = useState(false);
   const hasRun = useRef(false);
 
   const runTournamentSim = () => {
@@ -43,12 +42,8 @@ export default function TournamentSection({ onComplete }: TournamentSectionProps
 
       setResults(sorted);
       setPhase('results');
-
-      setTimeout(() => setAnimatedBars(true), 300);
     }, 1500);
   };
-
-  const maxScore = results.length > 0 ? Math.max(...results.map((r) => r.score)) : 1;
 
   return (
     <Section className="tournament-section">
