@@ -53,7 +53,7 @@ Each strategy represents a different philosophy on trust:
 ```bash
 # Clone the repository
 git clone https://github.com/smithg09/the_evolution_of_trust.git
-cd evolution-of-trust
+cd the_evolution_of_trust
 
 # Install dependencies
 npm install
@@ -63,30 +63,6 @@ npm run dev
 ```
 
 The app will be running at `http://localhost:5173`.
-
-### Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Type-check and build for production |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint across the project |
-
-## Project Structure
-
-```
-src/
-├── engine/           # Core game logic
-│   ├── types.ts      # Type definitions & payoff constants
-│   ├── strategies.ts # All 7 strategy implementations
-│   ├── game.ts       # Match & tournament simulation
-│   └── index.ts      # Public API barrel file
-├── components/       # Reusable UI components
-├── sections/         # Narrative story sections
-├── context/          # React context for game state
-└── App.tsx           # Root component & section orchestration
-```
 
 ## Contributing
 
@@ -104,14 +80,6 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Acknowledgments
 
-- [The Evolution of Trust](https://ncase.me/trust/) by **Nicky Case** — the original inspiration
+- [What Game Theory Reveals About Life, The Universe, and Everything](https://www.youtube.com/watch?v=mScpHTIi-kM) by **Veritasium** — the video that inspired this project
 - [The Evolution of Cooperation](https://en.wikipedia.org/wiki/The_Evolution_of_Cooperation) by **Robert Axelrod** — the foundational research
 - [Prisoner's Dilemma](https://en.wikipedia.org/wiki/Prisoner%27s_dilemma) — Wikipedia overview of the game
-
----
-
-<div align="center">
-
-Made with ❤️ by [Smith G](https://smithgajjar.dev)
-
-</div>
