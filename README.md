@@ -6,7 +6,7 @@
 
 Built with React · TypeScript · Vite
 
-[Live Demo](https://smithgajjar.dev/the_evolution_of_trust/) · [Report Bug](../../issues) · [Request Feature](../../issues)
+[Live Demo](https://trustgame.smithgajjar.dev/) · [Report Bug](../../issues) · [Request Feature](../../issues)
 
 </div>
 

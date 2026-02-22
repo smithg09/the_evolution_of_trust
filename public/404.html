@@ -6,12 +6,11 @@
     <script>
       // Single Page App hack for GitHub Pages
       // Redirects all 404s back to index.html with the path preserved
-      var pathSegmentsToKeep = 1; // keeps /the_evolution_of_trust prefix
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        '/?/' +
+        l.pathname.slice(1).replace(/&/g, '~and~') +
         (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );
