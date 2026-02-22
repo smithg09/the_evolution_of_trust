@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import Section from '../components/Section';
 import { ALL_STRATEGIES, evolvePopulation } from '../engine';
 import { getStrategyIcon } from '../components/strategyIcons';
+import { playEvolutionTick, playFanfare } from '../engine/sounds';
 import './EvolutionSection.css';
 
 interface EvolutionSectionProps {
@@ -194,6 +195,7 @@ export default function EvolutionSection({ onComplete }: EvolutionSectionProps) 
       return [...prev, next];
     });
     setGeneration((g) => g + 1);
+    playEvolutionTick();
   }, []);
 
   useEffect(() => {
@@ -204,10 +206,12 @@ export default function EvolutionSection({ onComplete }: EvolutionSectionProps) 
           const next = evolvePopulation(current, ALL_STRATEGIES, 10);
           return [...prev, next];
         });
+        playEvolutionTick();
         setGeneration((g) => {
           const newG = g + 1;
           if (newG >= maxGenerations) {
             setIsAutoPlaying(false);
+            playFanfare();
           }
           return newG;
         });

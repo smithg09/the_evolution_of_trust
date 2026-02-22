@@ -5,6 +5,7 @@ import PayoffMatrix from '../components/PayoffMatrix';
 import CoinSlot from '../components/CoinSlot';
 import type { Move } from '../engine';
 import { getPayoff } from '../engine';
+import { playStepAdvance, playWin, playLose } from '../engine/sounds';
 import './WhatIsTheGameSection.css';
 
 interface WhatIsTheGameSectionProps {
@@ -30,20 +31,23 @@ export default function WhatIsTheGameSection({ onComplete }: WhatIsTheGameSectio
     setDemoResult({ yourMove: move, theirMove, yourScore, theirScore });
     setHighlightCell(move === 'cooperate' ? [0, 0] : [1, 0]);
     setDemoCount((c) => c + 1);
+    // Sound feedback based on outcome
+    if (move === 'cooperate') playWin(); else playLose();
   };
 
   const narrativeSteps = [
     {
       text: "Here's the game. It's called **The Trust Game**. You have a partner — someone you've never met.",
-      action: () => setStep(1),
+      action: () => { playStepAdvance(); setStep(1); },
     },
     {
       text: "Each round, you both choose simultaneously: put a coin in the machine, or keep your coin.",
-      action: () => setStep(2),
+      action: () => { playStepAdvance(); setStep(2); },
     },
     {
       text: "If you **both** put a coin in, the machine gives you each **+3 coins**. Win-win!",
       action: () => {
+        playStepAdvance();
         setHighlightCell([0, 0]);
         setStep(3);
       },
@@ -51,6 +55,7 @@ export default function WhatIsTheGameSection({ onComplete }: WhatIsTheGameSectio
     {
       text: "If **only one** of you puts in a coin, the cheater gets **+5** while the cooperator gets **0**.",
       action: () => {
+        playStepAdvance();
         setHighlightCell([1, 0]);
         setStep(4);
       },
@@ -58,6 +63,7 @@ export default function WhatIsTheGameSection({ onComplete }: WhatIsTheGameSectio
     {
       text: "If **neither** of you puts in a coin... you both get **+1**.",
       action: () => {
+        playStepAdvance();
         setHighlightCell([1, 1]);
         setStep(5);
       },

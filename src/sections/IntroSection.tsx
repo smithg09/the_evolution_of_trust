@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Section from '../components/Section';
 import { DoodleStars, DoodleSquiggles, BouncingArrow } from '../components/SketchElements';
+import { playGameStart } from '../engine/sounds';
 import './IntroSection.css';
 
 /* Small inline SVG doodles for scattering */
@@ -101,7 +102,7 @@ export default function IntroSection({ onStart }: IntroSectionProps) {
 
         <motion.button
           className="intro-section__play-btn"
-          onClick={onStart}
+          onClick={() => { playGameStart(); onStart(); }}
           whileHover={{ scale: 1.06, rotate: -1 }}
           whileTap={{ scale: 0.95, rotate: 0 }}
           initial={{ opacity: 0, y: 20 }}

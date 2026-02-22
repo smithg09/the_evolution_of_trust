@@ -8,6 +8,7 @@ import RoundDisplay from '../components/RoundDisplay';
 import { getStrategyIcon } from '../components/strategyIcons';
 import type { Strategy, Move, RoundResult } from '../engine';
 import { ALL_STRATEGIES, playInteractiveRound } from '../engine';
+import { playWin, playLose, playMatchComplete, playClick } from '../engine/sounds';
 import './SandboxSection.css';
 
 interface SandboxSectionProps {
@@ -34,11 +35,14 @@ export default function SandboxSection({ onComplete }: SandboxSectionProps) {
       setRounds((prev) => [...prev, result]);
       setPlayerHistory((prev) => [...prev, result.player1Move]);
       setOpponentHistory((prev) => [...prev, result.player2Move]);
+      // Sound feedback
+      if (result.player1Score >= result.player2Score) playWin(); else playLose();
     },
     [selectedOpponent, playerHistory, opponentHistory, rounds]
   );
 
   const selectOpponent = (s: Strategy) => {
+    playClick();
     setSelectedOpponent(s);
     setRounds([]);
     setPlayerHistory([]);
@@ -56,6 +60,7 @@ export default function SandboxSection({ onComplete }: SandboxSectionProps) {
   // Unlock conclusion on first match complete
   if (matchComplete && !hasCompleted) {
     setHasCompleted(true);
+    playMatchComplete();
     onComplete?.();
   }
 

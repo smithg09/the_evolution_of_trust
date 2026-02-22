@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { MachineSVG, ConfettiBurst } from './SketchElements';
 import type { Move } from '../engine';
+import { playCoinCooperate, playCheat } from '../engine/sounds';
 import './CoinSlot.css';
 
 interface CoinSlotProps {
@@ -21,6 +22,7 @@ export default function CoinSlot({ onChoice, disabled = false, size = 'normal', 
     if (disabled) return;
     setLastChoice(move);
     setShowConfetti(move === 'cooperate');
+    if (move === 'cooperate') playCoinCooperate(); else playCheat();
     onChoice(move);
     setTimeout(() => {
       setLastChoice(null);

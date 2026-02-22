@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { Icon } from '@iconify/react';
-import { Lock } from 'lucide-react';
+import { Lock, Volume2, VolumeX } from 'lucide-react';
+import { playSectionUnlock, playClick, toggleMute, isMuted } from './engine/sounds';
 import { SketchFilters } from './components/SketchElements';
 import IntroSection from './sections/IntroSection';
 import WhatIsTheGameSection from './sections/WhatIsTheGameSection';
@@ -25,7 +26,13 @@ type SectionId = (typeof sections)[number]['id'];
 
 export default function App() {
   const [visibleSections, setVisibleSections] = useState<Set<SectionId>>(new Set(['intro']));
+  const [muted, setMuted] = useState(isMuted());
   const sectionRefs = useRef<Map<SectionId, HTMLDivElement>>(new Map());
+
+  const handleToggleMute = useCallback(() => {
+    const nowMuted = toggleMute();
+    setMuted(nowMuted);
+  }, []);
 
   const unlockSection = useCallback((id: SectionId) => {
     setVisibleSections((prev) => {
@@ -33,6 +40,8 @@ export default function App() {
       next.add(id);
       return next;
     });
+
+    playSectionUnlock();
 
     // Scroll to the new section after a brief delay
     setTimeout(() => {
@@ -50,6 +59,16 @@ export default function App() {
   return (
     <div className="app">
       <SketchFilters />
+
+      {/* Mute / Unmute toggle */}
+      <button
+        className="app__mute-btn"
+        onClick={handleToggleMute}
+        aria-label={muted ? 'Unmute sounds' : 'Mute sounds'}
+        title={muted ? 'Unmute sounds' : 'Mute sounds'}
+      >
+        {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+      </button>
 
       {/* Game-style level progress */}
       <nav className="app__progress" aria-label="Game progress">
@@ -80,6 +99,7 @@ export default function App() {
               className={nodeClass}
               onClick={() => {
                 if (isActive) {
+                  playClick();
                   sectionRefs.current.get(id)?.scrollIntoView({ behavior: 'smooth' });
                 }
               }}

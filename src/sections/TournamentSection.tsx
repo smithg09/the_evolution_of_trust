@@ -6,6 +6,7 @@ import CharacterCard from '../components/CharacterCard';
 import { TrophySVG, ConfettiBurst } from '../components/SketchElements';
 import { getStrategyIcon } from '../components/strategyIcons';
 import { ALL_STRATEGIES, runTournament } from '../engine';
+import { playTournamentStart, playFanfare } from '../engine/sounds';
 import './TournamentSection.css';
 
 interface TournamentSectionProps {
@@ -29,6 +30,7 @@ export default function TournamentSection({ onComplete }: TournamentSectionProps
     if (hasRun.current) return;
     hasRun.current = true;
     setPhase('running');
+    playTournamentStart();
 
     setTimeout(() => {
       const scores = runTournament(ALL_STRATEGIES, 10, 5);
@@ -42,6 +44,7 @@ export default function TournamentSection({ onComplete }: TournamentSectionProps
 
       setResults(sorted);
       setPhase('results');
+      playFanfare();
     }, 1500);
   };
 
