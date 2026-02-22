@@ -92,13 +92,13 @@ export default function ConclusionSection() {
           <div className="conclusion-section__credits">
             <p>
               Inspired by{' '}
-              <a href="https://www.youtube.com/watch?v=mScpHTIi-kM&t=1008s" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/watch?v=mScpHTIi-kM" target="_blank" rel="noopener noreferrer">
                 Veritasium's game theory deep-dive
               </a>
             </p>
             <p>
               Based on{' '}
-              <a href="https://archive.org/details/evolutionofcoop00axel/page/n259/mode/2up" target="_blank" rel="noopener noreferrer">
+              <a href="https://archive.org/details/evolutionofcoop00axel/mode/2up" target="_blank" rel="noopener noreferrer">
                 Axelrod's <em>The Evolution of Cooperation</em> (1984)
               </a>
             </p>

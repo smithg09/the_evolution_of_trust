@@ -86,12 +86,12 @@ export default function IntroSection({ onStart }: IntroSectionProps) {
 
         <p className="intro-section__credit">
           Inspired by{' '}
-          <a href="https://www.youtube.com/watch?v=mScpHTIi-kM&t=1008s" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/watch?v=mScpHTIi-kM" target="_blank" rel="noopener noreferrer">
             Veritasium's game theory deep-dive
           </a>
           <br />
           Based on{' '}
-          <a href="https://archive.org/details/evolutionofcoop00axel/page/n259/mode/2up" target="_blank" rel="noopener noreferrer">
+          <a href="https://archive.org/details/evolutionofcoop00axel/mode/2up" target="_blank" rel="noopener noreferrer">
             Axelrod's <em>The Evolution of Cooperation</em>
           </a>
         </p>
