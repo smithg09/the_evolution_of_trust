@@ -5,6 +5,7 @@ import CoinSlot from '../components/CoinSlot';
 import RoundDisplay from '../components/RoundDisplay';
 import CharacterCard from '../components/CharacterCard';
 import { getStrategyIcon } from '../components/strategyIcons';
+import { ScorePopup, TapeStrip } from '../components/SketchElements';
 import type { Move, RoundResult, Strategy } from '../engine';
 import { playInteractiveRound, copycat, alwaysCooperate, alwaysCheat } from '../engine';
 import './MeetTheCharactersSection.css';
@@ -134,6 +135,18 @@ export default function MeetTheCharactersSection({ onComplete }: MeetTheCharacte
                 opponentId={currentOpponent.id}
               />
 
+              {/* Score popup after each round */}
+              <div style={{ position: 'relative', height: 0, overflow: 'visible' }}>
+                <AnimatePresence>
+                  {rounds.length > 0 && (
+                    <ScorePopup
+                      score={rounds[rounds.length - 1].player1Score}
+                      id={rounds.length}
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
+
               <p className="meet-section__round-label">
                 Round {Math.min(rounds.length + 1, totalRounds)} of {totalRounds}
               </p>
@@ -190,6 +203,7 @@ export default function MeetTheCharactersSection({ onComplete }: MeetTheCharacte
               className="meet-section__reveal"
             >
               <div className="meet-section__scores-summary">
+                <TapeStrip className="meet-section__tape" rotation={-2} />
                 <h3>Your Results</h3>
                 {opponents.map(({ strategy }) => {
                   const score = matchScores.get(strategy.id);

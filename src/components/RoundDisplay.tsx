@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import type { RoundResult } from '../engine';
 import { getStrategyIcon } from './strategyIcons';
@@ -49,11 +50,14 @@ export default function RoundDisplay({
           <div className="round-display__row-label">P1</div>
           <div className="round-display__track">
             {paddedRounds.map((round, i) => (
-              <div
+              <motion.div
                 key={`p1-${i}`}
                 className={`round-display__dot ${!round ? 'round-display__dot--empty' :
                     round.player1Move === 'cooperate' ? 'round-display__dot--cooperate' : 'round-display__dot--defect'
                   } ${currentRound === i ? 'round-display__dot--active' : ''}`}
+                initial={round ? { scale: 0 } : false}
+                animate={round ? { scale: [0, 1.3, 1] } : undefined}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
               />
             ))}
           </div>
@@ -68,11 +72,14 @@ export default function RoundDisplay({
           <div className="round-display__row-label">P2</div>
           <div className="round-display__track">
             {paddedRounds.map((round, i) => (
-              <div
+              <motion.div
                 key={`p2-${i}`}
                 className={`round-display__dot ${!round ? 'round-display__dot--empty' :
                     round.player2Move === 'cooperate' ? 'round-display__dot--cooperate' : 'round-display__dot--defect'
                   } ${currentRound === i ? 'round-display__dot--active' : ''}`}
+                initial={round ? { scale: 0 } : false}
+                animate={round ? { scale: [0, 1.3, 1] } : undefined}
+                transition={{ duration: 0.35, ease: 'easeOut', delay: 0.08 }}
               />
             ))}
           </div>

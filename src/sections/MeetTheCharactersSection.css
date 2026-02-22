@@ -70,6 +70,15 @@
   margin-bottom: 2rem;
   box-shadow: 4px 4px 0 var(--sketch-border);
   position: relative;
+  overflow: hidden;
+}
+
+.meet-section__tape {
+  position: absolute;
+  top: -2px;
+  right: 10px;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 /* Tape decoration on scores card */

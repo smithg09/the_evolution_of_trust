@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import Section from '../components/Section';
+import { TapeStrip, NotebookCorner, GameBadge } from '../components/SketchElements';
 import './ConclusionSection.css';
 
 export default function ConclusionSection() {
@@ -55,6 +56,8 @@ export default function ConclusionSection() {
           What We Learned
         </motion.h2>
 
+        <GameBadge label="Key Takeaways" color="var(--neon-purple)" className="conclusion-section__badge" />
+
         <p className="narrative-text" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
           The evolution of trust follows some surprisingly simple rules:
         </p>
@@ -69,6 +72,7 @@ export default function ConclusionSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
+              <TapeStrip className="conclusion-lesson__tape" rotation={i % 2 === 0 ? -3 : 3} color={lesson.color} />
               <span className="conclusion-lesson__icon" style={{ color: lesson.color, borderColor: lesson.color, background: `color-mix(in srgb, ${lesson.color} 10%, transparent)` }}>{lesson.icon}</span>
               <div>
                 <h3 className="conclusion-lesson__title">{lesson.title}</h3>
@@ -85,9 +89,12 @@ export default function ConclusionSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <p className="conclusion-section__quote">
-            "It's not survival of the fittest. It's survival of the <em>fit-together</em>."
-          </p>
+          <div style={{ position: 'relative' }}>
+            <NotebookCorner className="conclusion-section__quote-corner" position="top-right" />
+            <p className="conclusion-section__quote">
+              "It's not survival of the fittest. It's survival of the <em>fit-together</em>."
+            </p>
+          </div>
 
           <div className="conclusion-section__credits">
             <p>

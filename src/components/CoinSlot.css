@@ -136,6 +136,28 @@
   font-family: 'Nunito', sans-serif;
 }
 
+/* Keyboard shortcut badge */
+.coin-slot__kbd {
+  display: inline-block;
+  font-family: 'Nunito', monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.05);
+  color: var(--text-muted);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+  margin-top: 0.15rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.coin-slot__btn:hover .coin-slot__kbd {
+  opacity: 1;
+}
+
 /* Shake animation for machine */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }

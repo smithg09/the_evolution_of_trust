@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.conclusion-section__badge {
+  margin: 0 auto 1rem;
+}
+
 .conclusion-section__lessons {
   display: flex;
   flex-direction: column;
@@ -24,6 +28,23 @@
   transition: all 0.2s ease;
   box-shadow: 4px 4px 0 var(--sketch-border);
   position: relative;
+  overflow: hidden;
+}
+
+.conclusion-lesson__tape {
+  position: absolute;
+  top: -2px;
+  right: 8px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.conclusion-section__quote-corner {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 /* Corner fold on lesson cards (removed) */

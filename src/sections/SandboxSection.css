@@ -49,6 +49,33 @@
   gap: 0.5rem;
 }
 
+.sandbox-section__surprise-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px dashed var(--neon-purple);
+  border-radius: 12px;
+  background: rgba(168, 85, 247, 0.06);
+  color: var(--neon-purple);
+  cursor: pointer;
+}
+
+.sandbox-section__surprise-btn:hover {
+  background: rgba(168, 85, 247, 0.12);
+}
+
+.sandbox-section__corner {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  opacity: 0.5;
+}
+
 .sandbox-section__main {
   display: flex;
   flex-direction: column;

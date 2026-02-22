@@ -27,7 +27,7 @@ export function SketchFilters() {
    ============================ */
 export function MachineSVG({ className, playerChoice, opponentChoice }: { className?: string; playerChoice?: 'cooperate' | 'cheat' | null; opponentChoice?: 'cooperate' | 'cheat' | null }) {
   return (
-    <svg className={`machine-svg ${className ?? ''}`} viewBox="0 0 200 150" fill="none">
+    <svg className={`machine-svg ${className ?? ''}`} viewBox="0 0 200 150" fill="none" filter="url(#sketchy)">
       {/* Side tabs */}
       <rect x="15" y="60" width="10" height="30" fill="#e0e0e0" stroke="#555" strokeWidth="2" />
       <rect x="175" y="60" width="10" height="30" fill="#e0e0e0" stroke="#555" strokeWidth="2" />

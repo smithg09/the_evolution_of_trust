@@ -1,12 +1,11 @@
 import { useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import Section from '../components/Section';
 import CoinSlot from '../components/CoinSlot';
 import CharacterCard from '../components/CharacterCard';
 import RoundDisplay from '../components/RoundDisplay';
-import { getStrategyIcon } from '../components/strategyIcons';
-import type { Strategy, Move, RoundResult } from '../engine';
+import { getStrategyIcon } from '../components/strategyIcons';import { ScorePopup, NotebookCorner } from '../components/SketchElements';import type { Strategy, Move, RoundResult } from '../engine';
 import { ALL_STRATEGIES, playInteractiveRound } from '../engine';
 import { playWin, playLose, playMatchComplete, playClick } from '../engine/sounds';
 import './SandboxSection.css';
@@ -55,6 +54,12 @@ export default function SandboxSection({ onComplete }: SandboxSectionProps) {
     setOpponentHistory([]);
   };
 
+  const surpriseMe = () => {
+    playClick();
+    const random = ALL_STRATEGIES[Math.floor(Math.random() * ALL_STRATEGIES.length)];
+    selectOpponent(random);
+  };
+
   const matchComplete = rounds.length >= totalRounds;
 
   // Unlock conclusion on first match complete
@@ -78,6 +83,14 @@ export default function SandboxSection({ onComplete }: SandboxSectionProps) {
         <div className="sandbox-section__layout">
           <div className="sandbox-section__sidebar">
             <h3 className="sandbox-section__sidebar-label">Choose Opponent</h3>
+            <motion.button
+              className="btn btn--ghost sandbox-section__surprise-btn"
+              onClick={surpriseMe}
+              whileHover={{ scale: 1.05, rotate: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Icon icon="noto:game-die" width={18} height={18} /> Surprise Me!
+            </motion.button>
             <div className="sandbox-section__opponents">
               {ALL_STRATEGIES.map((s) => (
                 <CharacterCard
@@ -93,6 +106,7 @@ export default function SandboxSection({ onComplete }: SandboxSectionProps) {
 
           <div className="sandbox-section__main">
             <div className="sandbox-section__opponent-info">
+              <NotebookCorner className="sandbox-section__corner" position="top-right" />
               <span
                 className="sandbox-section__opponent-emoji"
                 style={{ color: selectedOpponent.color, borderColor: `color-mix(in srgb, ${selectedOpponent.color} 40%, transparent)`, background: `color-mix(in srgb, ${selectedOpponent.color} 10%, transparent)` }}
@@ -106,12 +120,23 @@ export default function SandboxSection({ onComplete }: SandboxSectionProps) {
             </div>
 
             {rounds.length > 0 && (
-              <RoundDisplay
-                rounds={rounds}
-                currentRound={rounds.length - 1}
-                opponentLabel={selectedOpponent.name}
-                opponentId={selectedOpponent.id}
-              />
+              <>
+                <RoundDisplay
+                  rounds={rounds}
+                  currentRound={rounds.length - 1}
+                  opponentLabel={selectedOpponent.name}
+                  opponentId={selectedOpponent.id}
+                />
+                {/* Floating score popup */}
+                <div style={{ position: 'relative', height: 0, overflow: 'visible' }}>
+                  <AnimatePresence>
+                    <ScorePopup
+                      score={rounds[rounds.length - 1].player1Score}
+                      id={rounds.length}
+                    />
+                  </AnimatePresence>
+                </div>
+              </>
             )}
 
             <p className="sandbox-section__round-label">

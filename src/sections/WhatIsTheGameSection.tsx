@@ -24,15 +24,19 @@ export default function WhatIsTheGameSection({ onComplete }: WhatIsTheGameSectio
   const [demoCount, setDemoCount] = useState(0);
 
   const handleDemoChoice = (move: Move) => {
-    // Opponent always cooperates in this tutorial
-    const theirMove: Move = 'cooperate';
+    // On 2nd try, opponent cheats to create the "first betrayal" moment
+    const theirMove: Move = demoCount === 1 ? 'cheat' : 'cooperate';
     const yourScore = getPayoff(move, theirMove);
     const theirScore = getPayoff(theirMove, move);
     setDemoResult({ yourMove: move, theirMove, yourScore, theirScore });
-    setHighlightCell(move === 'cooperate' ? [0, 0] : [1, 0]);
+    if (theirMove === 'cooperate') {
+      setHighlightCell(move === 'cooperate' ? [0, 0] : [1, 0]);
+    } else {
+      setHighlightCell(move === 'cooperate' ? [0, 1] : [1, 1]);
+    }
     setDemoCount((c) => c + 1);
     // Sound feedback based on outcome
-    if (move === 'cooperate') playWin(); else playLose();
+    if (yourScore >= theirScore) playWin(); else playLose();
   };
 
   const narrativeSteps = [
@@ -69,7 +73,7 @@ export default function WhatIsTheGameSection({ onComplete }: WhatIsTheGameSectio
       },
     },
     {
-      text: "**Try it out!** Your partner will cooperate. What will you do?",
+      text: "**Try it out!** Your partner will cooperate... or will they?",
       action: null,
     },
   ];
@@ -150,7 +154,9 @@ export default function WhatIsTheGameSection({ onComplete }: WhatIsTheGameSectio
               </div>
               <div className="result-card">
                 <span className="result-card__label">Partner</span>
-                <span className="result-card__move">Cooperated</span>
+                <span className="result-card__move">
+                  {demoResult.theirMove === 'cooperate' ? 'Cooperated' : 'Cheated!'}
+                </span>
                 <span
                   className="result-card__score"
                   style={{

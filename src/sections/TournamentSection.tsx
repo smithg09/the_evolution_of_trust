@@ -190,7 +190,9 @@ export default function TournamentSection({ onComplete }: TournamentSectionProps
               )}
 
               <div className="tournament-section__leaderboard">
-                {results.map((r, i) => (
+                {results.map((r, i) => {
+                  const medalIcon = i === 0 ? 'noto:1st-place-medal' : i === 1 ? 'noto:2nd-place-medal' : i === 2 ? 'noto:3rd-place-medal' : null;
+                  return (
                   <motion.div
                     key={r.id}
                     className="tournament-row"
@@ -199,14 +201,17 @@ export default function TournamentSection({ onComplete }: TournamentSectionProps
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <div className="tournament-row__rank">#{i + 1}</div>
+                    <div className="tournament-row__rank">
+                      {medalIcon ? <Icon icon={medalIcon} width={22} height={22} /> : `#${i + 1}`}
+                    </div>
                     <div className="tournament-row__emoji" style={{ color: r.color }}>{getStrategyIcon(r.id, 24)}</div>
                     <div className="tournament-row__name" style={{ color: r.color }}>
                       {r.name}
                     </div>
                     <div className="tournament-row__score">{r.score}</div>
                   </motion.div>
-                ))}
+                  );
+                })}
               </div>
 
               {phase === 'results' && (

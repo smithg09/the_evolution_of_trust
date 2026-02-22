@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { MachineSVG, ConfettiBurst } from './SketchElements';
@@ -30,6 +30,19 @@ export default function CoinSlot({ onChoice, disabled = false, size = 'normal', 
     }, 1500);
   };
 
+  // Keyboard shortcuts: C = cooperate, X = cheat
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (disabled) return;
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      const key = e.key.toLowerCase();
+      if (key === 'c') handleChoice('cooperate');
+      if (key === 'x') handleChoice('cheat');
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
+
   return (
     <div className={`coin-slot coin-slot--${size}`}>
       {/* Machine illustration */}
@@ -60,6 +73,7 @@ export default function CoinSlot({ onChoice, disabled = false, size = 'normal', 
           <Icon icon="noto:coin" className="coin-slot__icon" />
           <span className="coin-slot__label">Cooperate</span>
           <span className="coin-slot__sub">Put in coin</span>
+          <kbd className="coin-slot__kbd">C</kbd>
         </motion.button>
 
         <div className="coin-slot__or">
@@ -80,6 +94,7 @@ export default function CoinSlot({ onChoice, disabled = false, size = 'normal', 
           <Icon icon="noto:raised-hand" className="coin-slot__icon" />
           <span className="coin-slot__label">Cheat</span>
           <span className="coin-slot__sub">Keep coin</span>
+          <kbd className="coin-slot__kbd">X</kbd>
         </motion.button>
       </div>
     </div>
