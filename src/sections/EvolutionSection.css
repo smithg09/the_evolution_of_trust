@@ -1,0 +1,156 @@
+/* ===========================
+   Evolution Section
+   =========================== */
+.evolution-section__content {
+  text-align: center;
+}
+
+.evolution-section__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.evolution-section__sim {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ---- Gen header ---- */
+.evolution-section__gen-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.evolution-section__gen-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-family: 'Nunito', sans-serif;
+  white-space: nowrap;
+}
+
+.evolution-section__gen-label strong {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.evolution-section__progress-track {
+  flex: 1;
+  max-width: 220px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.evolution-section__progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+}
+
+/* ---- Chart ---- */
+.evolution-section__chart {
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 0.5rem;
+}
+
+.evolution-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Legend ---- */
+.evolution-section__legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.4rem;
+}
+
+.evolution-section__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.15s ease;
+}
+
+.evolution-section__legend-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.evolution-section__legend-item--dead {
+  opacity: 0.2;
+}
+
+.evolution-section__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.evolution-section__legend-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.evolution-section__legend-name {
+  flex: 1;
+  font-weight: 600;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.evolution-section__legend-pct {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  min-width: 34px;
+  text-align: right;
+}
+
+/* ---- Controls ---- */
+.evolution-section__controls {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Conclusion ---- */
+.evolution-section__conclusion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding: 1.5rem;
+  border: 2px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+}

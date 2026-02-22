@@ -1,0 +1,186 @@
+/* ========================================
+   THE EVOLUTION OF TRUST — Global Styles
+   Sketch Notebook Game Theme
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@400&family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Colors — warm, playful, light */
+  --bg-primary: #faf8f5;
+  --bg-dark: #f0ece6;
+  --bg-card: #ffffff;
+
+  --text-primary: #2d2b2e;
+  --text-secondary: #6b6570;
+  --text-muted: #a09ba6;
+
+  /* Playful game palette */
+  --neon-blue: #4a90d9;
+  --neon-purple: #9b6dd7;
+  --neon-pink: #e8729a;
+  --neon-green: #5cb85c;
+  --neon-red: #e74c3c;
+  --neon-yellow: #f5a623;
+  --neon-orange: #e8854a;
+
+  /* Sketch accents */
+  --sketch-border: #c8c0b8;
+  --sketch-shadow: rgba(0, 0, 0, 0.06);
+  --pencil-color: #3a3a3a;
+
+  /* Type */
+  font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+/* Lined-paper / notebook background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 39px,
+      rgba(200, 192, 184, 0.2) 39px,
+      rgba(200, 192, 184, 0.2) 40px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Left margin red line (notebook feel) */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 60px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(231, 76, 60, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  color: var(--neon-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+  font-family: 'Patrick Hand', cursive;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ============================
+   Scrollbar — sketch style
+   ============================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 2px dashed var(--sketch-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sketch-border);
+  border-radius: 10px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Selection */
+::selection {
+  background: rgba(74, 144, 217, 0.2);
+  color: var(--text-primary);
+}
+
+/* ============================
+   Utility Animations
+   ============================ */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes scribble-in {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+.anim-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.anim-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ============================
+   Sketch card base
+   ============================ */
+.sketch-card {
+  background: var(--bg-card);
+  border: 2.5px solid var(--sketch-border);
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 var(--sketch-border);
+  position: relative;
+}
+
+.sketch-card--hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--sketch-border);
+}
+
+.sketch-card--hover:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 var(--sketch-border);
+}

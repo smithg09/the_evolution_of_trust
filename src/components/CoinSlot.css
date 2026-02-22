@@ -1,0 +1,164 @@
+/* ============================
+   CoinSlot — Arcade Game Style
+   ============================ */
+.coin-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.coin-slot--large {
+  gap: 1rem;
+}
+
+/* Machine illustration wrapper */
+.coin-slot__machine-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coin-slot__machine-wrap .machine-svg {
+  width: 180px;
+  filter: drop-shadow(3px 3px 0 var(--sketch-border));
+  transition: transform 0.3s ease;
+}
+
+.coin-slot--large .coin-slot__machine-wrap .machine-svg {
+  width: 220px;
+}
+
+/* Prompt */
+.coin-slot__prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Buttons container */
+.coin-slot__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.coin-slot__or {
+  flex-shrink: 0;
+}
+
+/* Arcade buttons */
+.coin-slot__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.25rem 2rem;
+  border: 4px solid var(--sketch-border);
+  border-radius: 24px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+  background: #ffffff;
+  box-shadow: 0 4px 0 var(--sketch-border);
+  position: relative;
+  overflow: hidden;
+  min-width: 130px;
+}
+
+.coin-slot--large .coin-slot__btn {
+  padding: 1.5rem 2.5rem;
+  min-width: 150px;
+}
+
+.coin-slot__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Cooperate — green arcade button */
+.coin-slot__btn--cooperate {
+  border-color: #73c073;
+  color: #27ae60;
+  box-shadow: 0 4px 0 #73c073;
+}
+
+.coin-slot__btn--cooperate:hover:not(:disabled) {
+  background: #f4fbf4;
+  box-shadow: 0 6px 0 #73c073;
+}
+
+.coin-slot__btn--cooperate:active:not(:disabled) {
+  box-shadow: 0 0 0 #73c073;
+}
+
+/* Cheat — red arcade button */
+.coin-slot__btn--cheat {
+  border-color: #e74c3c;
+  color: #c0392b;
+  box-shadow: 0 4px 0 #e74c3c;
+}
+
+.coin-slot__btn--cheat:hover:not(:disabled) {
+  background: #fdf2f0;
+  box-shadow: 0 6px 0 #e74c3c;
+}
+
+.coin-slot__btn--cheat:active:not(:disabled) {
+  box-shadow: 0 0 0 #e74c3c;
+}
+
+/* Button internals */
+.coin-slot__icon {
+  display: block;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.coin-slot__label {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-family: 'Patrick Hand', cursive;
+  letter-spacing: 0.02em;
+}
+
+.coin-slot__sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Shake animation for machine */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 50%, 90% { transform: translateX(-3px) rotate(-1deg); }
+  30%, 70% { transform: translateX(3px) rotate(1deg); }
+}
+
+.anim-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@media (max-width: 480px) {
+  .coin-slot__buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .coin-slot__or {
+    transform: rotate(90deg);
+  }
+
+  .coin-slot__btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}

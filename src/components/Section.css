@@ -1,0 +1,53 @@
+.game-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.game-section--dark {
+  background: var(--bg-dark);
+  /* Crosshatch background pattern for dark sections */
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L20 20M20 0L0 20' stroke='%23c8c0b8' stroke-width='0.3' opacity='0.15'/%3E%3C/svg%3E");
+}
+
+/* Sketch-style section separators */
+.game-section + .game-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, 80%);
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg width='600' height='12' viewBox='0 0 600 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 Q25 0 50 6 Q75 12 100 6 Q125 0 150 6 Q175 12 200 6 Q225 0 250 6 Q275 12 300 6 Q325 0 350 6 Q375 12 400 6 Q425 0 450 6 Q475 12 500 6 Q525 0 550 6 Q575 12 600 6' fill='none' stroke='%23c8c0b8' stroke-width='2' stroke-linecap='round' stroke-dasharray='8 4'/%3E%3C/svg%3E") center no-repeat;
+  background-size: contain;
+}
+
+/* Decorative corner doodles for dark sections */
+.game-section--dark::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='15' fill='none' stroke='%23c8c0b8' stroke-width='1.5' stroke-dasharray='4 3' opacity='0.3'/%3E%3Ccircle cx='20' cy='20' r='3' fill='%23c8c0b8' opacity='0.2'/%3E%3C/svg%3E") no-repeat;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.game-section__inner {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .game-section {
+    padding: 3rem 1.25rem;
+  }
+}

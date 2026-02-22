@@ -1,0 +1,258 @@
+/* ============================
+   Intro Section — Game Title Screen
+   ============================ */
+.intro-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.intro-section__content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Doodle decorations positioning */
+.intro-section__doodle-top {
+  position: absolute;
+  top: -60px;
+  width: 300px;
+  opacity: 0.5;
+}
+
+.intro-section__doodle-mid {
+  position: relative;
+  width: 200px;
+  opacity: 0.4;
+  margin: -0.5rem 0 1rem;
+}
+
+/* Badge */
+.intro-section__badge {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--neon-purple);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-family: 'Patrick Hand', cursive;
+  background: rgba(155, 109, 215, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  border: 2.5px dashed var(--neon-purple);
+  box-shadow: 2px 2px 0 rgba(155, 109, 215, 0.15);
+}
+
+/* Title */
+.intro-section__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.intro-section__title-the {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  color: var(--text-muted);
+  font-family: 'Patrick Hand', cursive;
+}
+
+.intro-section__title-main {
+  font-size: 5rem;
+  font-weight: 400;
+  font-family: 'Patrick Hand', cursive;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  position: relative;
+}
+
+.intro-section__title-of {
+  font-size: 3.2rem;
+  font-weight: 400;
+  font-family: 'Patrick Hand', cursive;
+  color: var(--neon-blue);
+  letter-spacing: 0.1em;
+}
+
+.intro-section__title-underline {
+  display: block;
+  margin: 0.5rem auto 1.5rem;
+}
+
+.intro-section__subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto 0.75rem;
+  line-height: 1.7;
+}
+
+.intro-section__subtitle em {
+  color: var(--neon-orange);
+  font-style: normal;
+  font-weight: 700;
+  background: rgba(245, 166, 35, 0.12);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.intro-section__credit {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 2;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.intro-section__credit a {
+  color: var(--neon-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+
+.intro-section__credit a:hover {
+  opacity: 1;
+}
+
+/* PLAY button — big arcade start button */
+.intro-section__play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 3.5rem;
+  border: 3px solid var(--neon-blue);
+  border-radius: 50px;
+  background: var(--neon-blue);
+  color: #fff;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 5px 5px 0 #3578b5;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine sweep effect */
+.intro-section__play-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-15deg);
+  animation: shine-sweep 3s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+  0%, 100% { left: -60%; }
+  50% { left: 120%; }
+}
+
+.intro-section__play-btn:hover {
+  background: #5a9ee0;
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 #3578b5;
+}
+
+.intro-section__play-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #3578b5;
+}
+
+/* Floating sketch particles */
+.intro-section__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.intro-section__particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--sketch-border);
+  background: transparent;
+}
+
+/* Alternate particle shapes */
+.intro-section__particle:nth-child(odd) {
+  border-radius: 50%;
+  border-color: var(--neon-blue);
+}
+
+.intro-section__particle:nth-child(even) {
+  border-radius: 2px;
+  border-color: var(--neon-purple);
+  transform: rotate(45deg);
+}
+
+.intro-section__particle:nth-child(3n) {
+  width: 6px;
+  height: 6px;
+  border-color: var(--neon-yellow);
+  border-style: dashed;
+}
+
+/* ============================
+   Scattered SVG doodle shapes
+   ============================ */
+.intro-section__doodle-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.intro-doodle-float {
+  position: absolute;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.1));
+}
+
+/* Slight size variation on mobile */
+@media (max-width: 640px) {
+  .intro-section__title-main {
+    font-size: 2.8rem;
+  }
+
+  .intro-section__title-of {
+    font-size: 1.8rem;
+  }
+
+  .intro-section__play-btn {
+    padding: 0.9rem 2.5rem;
+    font-size: 1.3rem;
+  }
+
+  .intro-section__doodle-top {
+    width: 200px;
+  }
+
+  .intro-doodle-float svg {
+    transform: scale(0.75);
+  }
+}

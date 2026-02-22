@@ -1,0 +1,66 @@
+/* ============================
+   What Is The Game — Interactive Tutorial
+   ============================ */
+.what-is-section__content {
+  text-align: center;
+}
+
+.what-is-section__narrative {
+  margin: 2rem 0;
+}
+
+.what-is-section__result {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.what-is-section__result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--bg-card);
+  border: 3px solid var(--sketch-border);
+  box-shadow: 3px 3px 0 var(--sketch-border);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sketch corner fold on result cards */
+.result-card::after {
+  content: none;
+}
+
+.result-card__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+}
+
+.result-card__move {
+  font-size: 1rem;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.result-card__score {
+  font-size: 2.2rem;
+  font-weight: 400;
+  font-family: 'Patrick Hand', cursive;
+}

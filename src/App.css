@@ -1,0 +1,267 @@
+/* App layout */
+.app {
+  position: relative;
+}
+
+/* ============================
+   Game-style Level Progress
+   (side nav like a level map)
+   ============================ */
+.app__progress {
+  position: fixed;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 100;
+  padding: 0.6rem 0.35rem;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.app__progress-path {
+  display: none;
+}
+
+.app__progress-node {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  padding: 0;
+  font-family: inherit;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Visited (unlocked but not current) */
+.app__progress-node--visited {
+  opacity: 0.55;
+}
+
+.app__progress-node--visited:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Current — the latest unlocked level */
+.app__progress-node--current {
+  background: rgba(74, 144, 217, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--neon-blue), 0 0 8px rgba(74, 144, 217, 0.25);
+  animation: current-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes current-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px var(--neon-blue), 0 0 6px rgba(74, 144, 217, 0.2); }
+  50% { box-shadow: 0 0 0 3px var(--neon-blue), 0 0 12px rgba(74, 144, 217, 0.35); }
+}
+
+.app__progress-node--current:hover {
+  transform: scale(1.15);
+}
+
+/* Locked */
+.app__progress-node--locked {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.app__progress-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+.app__progress-node--current .app__progress-icon {
+  color: var(--neon-blue);
+}
+
+.app__progress-node--locked .app__progress-icon {
+  opacity: 0.5;
+}
+
+/* ============================
+   Section Titles — sketch style
+   ============================ */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 400;
+  font-family: 'Patrick Hand', cursive;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Inline icon inside section titles */
+.section-title-icon {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+  margin-top: -0.15em;
+  opacity: 0.85;
+}
+
+/* Wavy underline for section titles */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 6px;
+  margin: 0.5rem auto 0;
+  background: url("data:image/svg+xml,%3Csvg width='120' height='6' viewBox='0 0 120 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 3 Q10 0 20 3 Q30 6 40 3 Q50 0 60 3 Q70 6 80 3 Q90 0 100 3 Q110 6 120 3' fill='none' stroke='%234a90d9' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center no-repeat;
+  background-size: contain;
+}
+
+.narrative-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+}
+
+.narrative-text strong {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.narrative-text em {
+  color: var(--neon-orange);
+  font-style: normal;
+  font-weight: 700;
+  background: rgba(245, 166, 35, 0.12);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* ============================
+   Buttons — Game Arcade Style
+   Chunky, 3D, satisfying press
+   ============================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  border-radius: 14px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: 3px solid var(--sketch-border);
+  transition: all 0.15s ease;
+  background: var(--bg-card);
+  box-shadow: 4px 4px 0 var(--sketch-border);
+  position: relative;
+  user-select: none;
+}
+
+.btn:hover {
+  box-shadow: 5px 5px 0 var(--sketch-border);
+  transform: translate(-1px, -1px);
+}
+
+.btn:active {
+  box-shadow: 1px 1px 0 var(--sketch-border);
+  transform: translate(3px, 3px);
+  transition: all 0.05s ease;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: 2px 2px 0 var(--sketch-border);
+  transform: none;
+}
+
+.btn--primary {
+  background: var(--neon-blue);
+  color: #fff;
+  border-color: #3578b5;
+  box-shadow: 4px 4px 0 #3578b5;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: #5a9ee0;
+  box-shadow: 5px 5px 0 #3578b5;
+}
+
+.btn--primary:active:not(:disabled) {
+  box-shadow: 1px 1px 0 #3578b5;
+}
+
+.btn--secondary {
+  background: #fff;
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+  box-shadow: 4px 4px 0 rgba(74, 144, 217, 0.35);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: rgba(74, 144, 217, 0.06);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--sketch-border);
+  box-shadow: 3px 3px 0 var(--sketch-border);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-primary);
+}
+
+/* Button with SVG arrow */
+.btn__arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .app__progress {
+    right: 0.4rem;
+    padding: 0.4rem 0.25rem;
+    gap: 0.25rem;
+  }
+
+  .app__progress-node {
+    width: 24px;
+    height: 24px;
+  }
+
+  .app__progress-icon {
+    font-size: 0.8rem;
+  }
+}

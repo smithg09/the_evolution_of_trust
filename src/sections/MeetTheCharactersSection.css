@@ -1,0 +1,133 @@
+/* ============================
+   Meet The Characters — Game Style
+   ============================ */
+.meet-section__content {
+  text-align: center;
+}
+
+.meet-section__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meet-section__characters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.meet-section__play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meet-section__round-label {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  font-weight: 400;
+  font-family: 'Patrick Hand', cursive;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Round counter badge */
+.meet-section__round-label::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-blue);
+  opacity: 0.6;
+}
+
+.meet-section__match-done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meet-section__reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meet-section__scores-summary {
+  width: 100%;
+  max-width: 500px;
+  background: var(--bg-card);
+  border: 3px solid var(--sketch-border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 4px 4px 0 var(--sketch-border);
+  position: relative;
+}
+
+/* Tape decoration on scores card */
+.meet-section__scores-summary::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 30px;
+  width: 60px;
+  height: 16px;
+  background: rgba(245, 166, 35, 0.25);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: 2px;
+  transform: rotate(-3deg);
+}
+
+.meet-section__scores-summary h3 {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 1rem;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.meet-section__score-row {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 2.5px dashed rgba(200, 192, 184, 0.4);
+}
+
+.meet-section__score-row:last-child {
+  border-bottom: none;
+}
+
+.meet-section__score-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.meet-section__score-name {
+  text-align: left;
+  font-weight: 700;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.meet-section__score-val {
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: 'Patrick Hand', cursive;
+  padding: 0.1rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.03);
+}

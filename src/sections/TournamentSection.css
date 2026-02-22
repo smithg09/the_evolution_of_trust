@@ -1,0 +1,156 @@
+/* ============================
+   Tournament — Arena Game Style
+   ============================ */
+.tournament-section__content {
+  text-align: center;
+}
+
+.tournament-section__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tournament-section__lineup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.tournament-section__vs-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
+
+/* Battle animation */
+.tournament-section__running {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 0;
+}
+
+.tournament-section__network-anim {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+/* Winner display */
+.tournament-section__winner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-card);
+  border: 3px solid var(--neon-yellow);
+  border-radius: 18px;
+  box-shadow: 4px 4px 0 rgba(245, 166, 35, 0.4);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.tournament-section__winner-name {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+/* Results leaderboard */
+.tournament-section__results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tournament-section__leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tournament-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 3px solid; /* Color set inline */
+  border-radius: 12px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.tournament-row:hover {
+  transform: translateY(-2px);
+}
+
+.tournament-row__rank {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  width: 2rem;
+  font-weight: 700;
+  font-family: 'Patrick Hand', cursive;
+  text-align: center;
+}
+
+/* Gold/Silver/Bronze rank styling */
+.tournament-row:nth-child(1) .tournament-row__rank {
+  color: var(--neon-yellow);
+}
+
+.tournament-row:nth-child(2) .tournament-row__rank {
+  color: #b8b8b8;
+}
+
+.tournament-row:nth-child(3) .tournament-row__rank {
+  color: #cd7f32;
+}
+
+.tournament-row__emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.tournament-row__name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  font-family: 'Patrick Hand', cursive;
+  flex: 1;
+  text-align: left;
+}
+
+.tournament-row__score {
+  font-weight: 700;
+  font-size: 1.4rem;
+  font-family: 'Patrick Hand', cursive;
+  color: var(--text-primary);
+  padding: 0.2rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+.tournament-section__analysis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
