@@ -59,7 +59,7 @@ export default function ConclusionSection() {
         <GameBadge label="Key Takeaways" color="var(--neon-purple)" className="conclusion-section__badge" />
 
         <p className="narrative-text" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          The evolution of trust follows some surprisingly simple rules:
+          The paradox of trust follows some surprisingly simple rules:
         </p>
 
         <div className="conclusion-section__lessons">

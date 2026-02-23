@@ -72,8 +72,8 @@ export default function IntroSection({ onStart }: IntroSectionProps) {
 
         <h1 className="intro-section__title">
           <span className="intro-section__title-the">THE</span>
-          <span className="intro-section__title-main">EVOLUTION</span>
-          <span className="intro-section__title-of">OF TRUST</span>
+          <span className="intro-section__title-main">TRUST</span>
+          <span className="intro-section__title-of">PARADOX</span>
         </h1>
 
         {/* Hand-drawn underline SVG */}

@@ -1,4 +1,4 @@
-# The Evolution of Trust - Copilot Instructions
+# The Trust Paradox - Copilot Instructions
 
 ## Project Overview
 Interactive game theory experiment (iterated Prisoner's Dilemma) built with React + TypeScript + Vite.

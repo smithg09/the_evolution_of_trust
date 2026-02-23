@@ -1,11 +1,11 @@
 {
-  "name": "the_evolution_of_trust",
-  "description": "An interactive game theory experiment exploring cooperation, betrayal, and the evolution of trust through Robert Axelrod's iterated Prisoner's Dilemma.",
+  "name": "the-trust-paradox",
+  "description": "An interactive game theory experiment exploring cooperation, betrayal, and the trust paradox through Robert Axelrod's iterated Prisoner's Dilemma.",
   "author": {
     "name": "Smith G",
     "url": "https://smithgajjar.dev"
   },
-  "homepage": "https://evolution-of-trust.smithgajjar.dev",
+  "homepage": "https://trust-paradox.smithgajjar.dev",
   "public": true,
   "version": "0.0.1",
   "type": "module",

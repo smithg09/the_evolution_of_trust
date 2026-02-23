@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🤝 The Evolution of Trust
+# 🤝 The Trust Paradox
 
 **An interactive game theory experiment exploring cooperation, betrayal, and the emergence of trust.**
 
 Built with React · TypeScript · Vite
 
-[Live Demo](https://evolution-of-trust.smithgajjar.dev/) · [Report Bug](../../issues) · [Request Feature](../../issues)
+[Live Demo](https://trust-paradox.smithgajjar.dev/) · [Report Bug](../../issues) · [Request Feature](../../issues)
 
 </div>
 
@@ -16,7 +16,7 @@ Built with React · TypeScript · Vite
 
 Why do strangers cooperate? Why do friends betray? And what does game theory have to say about it?
 
-**The Evolution of Trust** is an interactive web experience that walks you through the *iterated Prisoner's Dilemma* — one of the most studied problems in game theory — as a narrative-driven story. Rather than reading equations, you **play** the game, **meet** different strategies as characters, **watch** them compete, and **see** trust evolve in populations over time.
+**The Trust Paradox** is an interactive web experience that walks you through the *iterated Prisoner's Dilemma* — one of the most studied problems in game theory — as a narrative-driven story. Rather than reading equations, you **play** the game, **meet** different strategies as characters, **watch** them compete, and **see** trust evolve in populations over time.
 
 Inspired by [Veritasium's video on the Prisoner's Dilemma](https://www.youtube.com/watch?v=mScpHTIi-kM) and Robert Axelrod's foundational research on cooperation.
 Read more about the research here [Axelrod's The Evolution of Cooperation](https://archive.org/details/evolutionofcoop00axel/mode/2up)

@@ -1,4 +1,4 @@
-// Core game types for The Evolution of Trust
+// Core game types for The Trust Paradox
 
 export type Move = 'cooperate' | 'cheat';
 
