@@ -1,5 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#faf8f5"/>
-  <text x="32" y="42" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#3a3a3a" letter-spacing="-1">ET</text>
-  <line x1="14" y1="48" x2="50" y2="48" stroke="#4a90d9" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#3a3a3a" letter-spacing="-1">TP</text>
+  <line x1="14" y1="48" x2="50" y2="48" stroke="url(#fg)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <defs>
+    <linearGradient id="fg" x1="14" y1="0" x2="50" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4a90d9"/>
+      <stop offset="100%" stop-color="#9b6dd7"/>
+    </linearGradient>
+  </defs>
 </svg>

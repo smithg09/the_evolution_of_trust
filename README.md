@@ -52,8 +52,8 @@ Each strategy represents a different philosophy on trust:
 
 ```bash
 # Clone the repository
-git clone https://github.com/smithg09/the_evolution_of_trust.git
-cd the_evolution_of_trust
+git clone https://github.com/smithg09/the-trust-paradox.git
+cd the-trust-paradox
 
 # Install dependencies
 npm install
