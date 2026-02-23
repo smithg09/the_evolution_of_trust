@@ -82,7 +82,7 @@ export default function IntroSection({ onStart }: IntroSectionProps) {
         </svg>
 
         <p className="intro-section__subtitle">
-          Explore how cooperation emerges, survives, and breaks down — through the lens of the <em>Prisoner's Dilemma</em>
+          Explore how cooperation emerges, survives, and breaks down through the lens of the <em>Prisoner's Dilemma</em>
         </p>
 
         <p className="intro-section__credit">
